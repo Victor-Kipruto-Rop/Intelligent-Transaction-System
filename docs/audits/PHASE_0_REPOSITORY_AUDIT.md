@@ -125,3 +125,22 @@ This is a remote source review, not a local build or a security audit. The Maven
 ## Decision
 
 Keep PRs #1-#3 as drafts until the P0 CI evidence and P1 architecture decisions are addressed. No real financial data, provider credentials or production workloads should be connected yet.
+
+
+## Phase 0 remediation update
+
+Changes committed to this PR after the initial audit:
+- Expanded CI, quality and CodeQL branch filters to cover the stacked scaffold, architecture and foundation branches.
+- Added workflow dispatch and concurrency controls to the security and quality workflows.
+- Changed quality diff checks to inspect the pull-request base-to-head range and narrowed conflict-marker checks to added diff lines.
+- Added `CONTRIBUTING.md` and `SECURITY.md`.
+- Added ADR 0004 proposing a modular initial deployment topology.
+- Added detailed pre-implementation specifications for money/assets, transaction state dimensions and event/schema governance.
+- Added a requirements traceability template.
+- Recorded that the repository license remains an explicit owner decision; no license was invented or applied.
+
+### Verification still outstanding
+
+These edits have not yet been validated by a completed GitHub Actions run. The earlier failed run logs remain unavailable through the connected interface. The CI workflow must complete on the updated PR head before its trigger and build remediation can be marked verified. No local Maven build, container startup, security scan or runtime test was executed here.
+
+The initial scaffold's Money implementation and TransactionStatus enum remain code-level placeholders that must be reconciled with the new specifications before core financial processing is implemented.
