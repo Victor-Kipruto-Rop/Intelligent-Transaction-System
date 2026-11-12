@@ -30,7 +30,7 @@ jobs:
             echo "Possible merge conflict markers found in changed lines."
             exit 1
           fi
-      - uses: actions/setup-java@v4
+      - uses: actions/setup-java@v6
         with:
           distribution: temurin
           java-version: "21"
