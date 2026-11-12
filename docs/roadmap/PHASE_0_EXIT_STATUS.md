@@ -68,6 +68,16 @@ The six failed job-log downloads were attempted again. Each returned `BlobNotFou
 
 A new reviewer sign-off register is available at [PHASE_0_SIGN_OFF.md](../governance/PHASE_0_SIGN_OFF.md). Product, architecture, financial-domain, security/privacy, legal/compliance, operations, engineering and license-owner decisions remain pending until named reviewers record approvals.
 
+## Latest PR #3 documentation commit check (2026-11-12)
+
+After the sign-off register and README links were committed, PR #3 advanced to head `f0fbd6e185fdbed0fc61cc3bb8f22ce9ca7a7ab0`. GitHub created new checks on that exact head:
+
+- CI run `43140581834`: failed
+- Quality baseline run `43140581943`: failed
+- CodeQL run `43140581933`: failed
+
+This supersedes the PR #3 head and run IDs in the earlier snapshot table above. The PR remains a draft and GitHub currently reports it mergeable. The workflow failure details are still not available from the connector; do not treat the previous snapshot as current for PR #3.
+
 ## Required closure gates
 
 - [ ] Diagnose and fix all failed PR #1-#3 workflows.
