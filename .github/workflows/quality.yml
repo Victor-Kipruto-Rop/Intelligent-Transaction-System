@@ -1,0 +1,28 @@
+name: Quality baseline
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main, "architecture/**"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Whitespace and conflict marker checks
+        run: |
+          git diff --check
+          if grep -RInE '^(<<<<<<<|=======|>>>>>>>)' --exclude-dir=.git .; then exit 1; fi
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "21"
+          cache: maven
+      - name: Maven verification
+        run: mvn -B -ntp verify
