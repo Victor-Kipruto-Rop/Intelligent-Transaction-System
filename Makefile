@@ -4,16 +4,16 @@ help:
 	@echo "build test verify clean infra-up infra-down"
 
 build:
-	./mvnw -B -DskipTests package
+	mvn -B -DskipTests package
 
 test:
-	./mvnw -B test
+	mvn -B test
 
 verify:
-	./mvnw -B verify
+	mvn -B verify
 
 clean:
-	./mvnw -B clean
+	mvn -B clean
 
 infra-up:
 	docker compose up -d
