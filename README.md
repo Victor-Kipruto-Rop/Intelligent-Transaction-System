@@ -1,45 +1,54 @@
 # Intelligent Transaction System
 
-A production-oriented Java data platform for real-time financial transaction intelligence.
+A global-ready, production-oriented Java platform for real-time financial transaction intelligence.
 
-> **Scaffold status:** repository foundation and service boundaries. This is not yet a production payment-processing system. Integrations, security policies, deployment manifests and operational controls must be implemented and verified before handling real financial data.
+> **Status:** architecture and repository foundation. This is not yet a production payment-processing system. Business workflows, integrations, security controls, deployment and operational evidence must be implemented and verified before real financial data is processed.
 
-## Goals
+## Mission
 
-- Securely ingest financial transaction events.
-- Validate, persist and publish events reliably.
-- Process streams and detect anomalies.
-- Reconcile internal records with external statements.
-- Build historical analytical datasets.
-- Provide observable, recoverable, tenant-aware services.
+Build a multi-tenant financial data platform that can evolve from a regional deployment into independently scalable regional cells serving fintechs, payment processors, merchants and financial institutions worldwide.
+
+## Global scalability principles
+
+- Stateless Java services scale horizontally behind regional edge routing.
+- Tenant-aware admission control, quotas and noisy-neighbor protection.
+- PostgreSQL is authoritative for accepted operational transactions; use atomic outbox and idempotent consumers.
+- Kafka distributes events with stable keys and partition-aware consumer scaling.
+- Flink handles stateful real-time stream computation; Spark/Iceberg handle historical and batch workloads.
+- Each tenant has an authoritative home region for writes; avoid split-brain multi-primary ledger writes.
+- Regional recovery, data residency, retention and encryption are explicit architecture concerns.
+- Capacity targets are measured through reproducible load, soak, chaos and correctness tests.
+
+Planning envelopes (not guarantees): 1,000 sustained API RPS, 5,000 burst RPS, 10,000 concurrent sessions and millions of events/day. All require cloud-specific benchmark evidence before capacity or SLA claims.
 
 ## Technology baseline
 
-- Java 21 LTS, Maven multi-module build
-- Spring Boot 3.x services
+- Java 21 LTS, Maven multi-module build, Spring Boot 3.x
 - PostgreSQL and Flyway
 - Apache Kafka for event distribution
 - Apache Flink for stream processing (integration phase)
-- Apache Spark, Parquet and Apache Iceberg for batch/lakehouse workloads (integration phase)
+- Apache Spark, Parquet, Apache Iceberg and Trino for data engineering (integration phase)
 - Redis for cache and ephemeral coordination
 - Docker Compose for local development
+- Kubernetes and Terraform for deployment (implementation phase)
 - OpenTelemetry, Prometheus and Grafana for observability
-
-Exact component versions are centrally managed and should be upgraded through reviewed dependency changes.
 
 ## Repository layout
 
 | Path | Responsibility |
 |---|---|
-| `apps/` | Deployable application services |
-| `shared/` | Reusable domain types and event contracts |
-| `platform/` | Identity, schema, quality and control-plane designs |
-| `data-platform/` | Lakehouse, batch and orchestration assets |
-| `infrastructure/` | Containers, Kubernetes and Terraform |
-| `observability/` | Metrics, traces, logs and dashboards |
-| `security/` | Threat models and security policies |
-| `testing/` | Integration, contract, E2E and resilience tests |
-| `docs/` | Architecture decisions, runbooks and operating guides |
+| `apps/` | Deployable domain services |
+| `shared/` | Stable domain types and event contracts |
+| `platform/` | Identity, tenant control plane, schema and data quality |
+| `messaging/` | Kafka topics, ACLs, contracts and DLQ operations |
+| `storage/` | PostgreSQL, cache, object and analytical stores |
+| `data-platform/` | Lakehouse, Spark, Airflow and Trino |
+| `infrastructure/` | Docker, Kubernetes, Helm and Terraform |
+| `observability/` | OpenTelemetry, metrics, dashboards and alerts |
+| `security/` | Threat model, policies and secure development |
+| `testing/` | Unit, contract, load, chaos and security tests |
+| `benchmarks/` | Reproducible capacity scenarios |
+| `docs/` | Architecture decisions, rollout and runbooks |
 
 ## Quick start
 
@@ -55,28 +64,35 @@ The compose environment is for local development only. Change all sample credent
 
 ## Financial correctness principles
 
-1. PostgreSQL is the authoritative operational store for accepted transaction state.
-2. Use a transactional outbox to publish database changes reliably.
-3. Kafka delivery is treated as at-least-once; consumers must be idempotent.
-4. Do not claim end-to-end exactly-once financial effects based solely on Kafka transactions.
-5. Use decimal arithmetic and explicit ISO currency codes. Never use binary floating point for money.
-6. Preserve immutable event/audit history and model reversals as compensating events.
+1. A transaction is accepted only after its authoritative database transaction commits.
+2. Commit transaction, idempotency record, audit and outbox atomically.
+3. Treat cross-service delivery as at-least-once; consumers must be idempotent.
+4. Never claim end-to-end exactly-once financial effects from Kafka/Flink semantics alone.
+5. Use decimal/minor-unit-safe money and explicit ISO currency codes.
+6. Preserve immutable event history; model reversals as compensating events.
 7. Enforce tenant authorization at every data-access boundary.
-8. Never store PAN, CVV, PIN, credentials or secrets in logs or event payloads.
+8. Never log credentials, payment authentication data or prohibited sensitive payloads.
 
 ## Current implementation status
 
-- [x] Repository and Maven module scaffold
-- [x] Local dependency compose file
-- [x] CI workflow and baseline tests
-- [x] Architecture and security documentation
-- [ ] Transaction ingestion and durable persistence
-- [ ] Transactional outbox publisher
-- [ ] Kafka schemas, topics and ACLs
-- [ ] Flink streaming jobs and recovery tests
-- [ ] Reconciliation matching engine
-- [ ] Anomaly rules and scoring
-- [ ] Lakehouse ingestion and analytical models
-- [ ] Production security, deployment and DR verification
+- [x] Java 21 Maven multi-module scaffold and service shells
+- [x] Local PostgreSQL, Redis and Kafka compose environment
+- [x] Baseline CI, CodeQL and dependency update configuration
+- [x] Global cell, capacity, residency, tenant-isolation and DR architecture
+- [x] Data platform, infrastructure, observability, security and testing folder boundaries
+- [ ] Durable transaction ingestion and database migrations
+- [ ] Transactional outbox publisher and consumer inbox
+- [ ] Kafka schema registry, ACLs and DLQ implementation
+- [ ] Executable Flink jobs and recovery tests
+- [ ] Reconciliation and anomaly workflows
+- [ ] Lakehouse ingestion, Spark jobs and analytical models
+- [ ] Identity, tenant control plane and regional routing
+- [ ] Kubernetes/Terraform deployment and secrets integration
+- [ ] Load, soak, chaos, restore and regional failover evidence
+- [ ] Security/legal review and production approval
 
-See [docs/roadmap/implementation-plan.md](docs/roadmap/implementation-plan.md) and [docs/architecture/system-overview.md](docs/architecture/system-overview.md).
+## Production gate
+
+Do not process real financial data until correctness, tenant isolation, security, observability, disaster recovery, capacity and jurisdiction-specific obligations have passed evidence-based review.
+
+See `docs/roadmap/implementation-plan.md`, `docs/roadmap/production-maturity-gates.md` and `docs/architecture/global-scale-reference-architecture.md`.
