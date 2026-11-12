@@ -2,16 +2,21 @@ name: CodeQL
 
 on:
   push:
-    branches: [main]
+    branches: [main, "scaffold/**", "architecture/**", "foundation/**"]
   pull_request:
-    branches: [main]
+    branches: [main, "scaffold/**", "architecture/**", "foundation/**"]
   schedule:
     - cron: "23 4 * * 1"
+  workflow_dispatch:
 
 permissions:
   contents: read
   security-events: write
   actions: read
+
+concurrency:
+  group: codeql-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   analyze:

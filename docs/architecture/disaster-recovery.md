@@ -1,0 +1,3 @@
+# Disaster recovery
+
+Set owner-approved RPO/RTO per service and store. Require encrypted backups, point-in-time recovery, isolated restore tests, broker replay procedures, infrastructure recovery, secret/key recovery and regional failover runbooks. Failover must fence the old writer, prevent split brain and reconcile transaction/outbox state. Never claim recovery objectives without tested evidence.
