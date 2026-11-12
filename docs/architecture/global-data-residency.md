@@ -1,0 +1,3 @@
+# Global data residency
+
+Maintain tenant home-region and residency policy in the tenant registry. Keep transaction and personal data in approved regions. Separate global control-plane metadata from regional financial data. Define jurisdiction-specific retention, deletion, export, legal-hold and key-management policies. Cross-region replication requires explicit legal and customer approval. Global availability does not imply unrestricted replication.
