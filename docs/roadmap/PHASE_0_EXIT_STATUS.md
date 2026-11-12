@@ -45,6 +45,13 @@ The connected GitHub interface returned completed failed workflow jobs, but the 
 - Select and add a repository license. Public repository visibility alone is not an open-source license.
 - Assign maintainers for security, operations, architecture and financial-domain decisions.
 
+## Latest follow-up (2026-11-12)
+
+- Pinned the Spring Boot Maven plugin version in the root parent POM to make plugin resolution deterministic across child modules.
+- The change is committed on the pre-development blueprint branch.
+- GitHub automatically created follow-up PR checks, but the latest observed CodeQL and quality jobs still concluded as failed. The CI run was not returned for that head at the time of inspection.
+- This plugin-version pin is a build reproducibility improvement, not a confirmed fix for the existing failures. The raw logs remain unavailable through the connected interface; inspect the run pages directly before making further changes.
+
 ## Required closure gates
 
 - [ ] Diagnose and fix all failed PR #1-#3 workflows.
