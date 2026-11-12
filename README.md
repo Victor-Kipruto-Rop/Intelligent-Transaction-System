@@ -114,6 +114,7 @@ The audit records the current PR/CI status, architecture gaps, unresolved decisi
 - [Transaction state machine](docs/architecture/TRANSACTION_STATE_MACHINE.md)
 - [Schema and event contract governance](docs/architecture/SCHEMA_GOVERNANCE.md)
 - [Requirements traceability template](docs/roadmap/REQUIREMENTS_TRACEABILITY_TEMPLATE.md)
+- [Open-source licensing decision](docs/governance/OPEN_SOURCE_LICENSE_DECISION.md)
 
 ## Pre-development blueprint
 
