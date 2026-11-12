@@ -98,6 +98,12 @@ Do not process real financial data until correctness, tenant isolation, security
 See `docs/roadmap/implementation-plan.md`, `docs/roadmap/production-maturity-gates.md` and `docs/architecture/global-scale-reference-architecture.md`.
 
 
+## Phase 0 audit
+
+- [Repository and architecture audit](docs/audits/PHASE_0_REPOSITORY_AUDIT.md)
+
+The audit records the current PR/CI status, architecture gaps, unresolved decisions and merge blockers. It is a remote source review, not a local build or security certification.
+
 ## Pre-development blueprint
 
 Before implementing the transaction engine, review the requirements and design contracts:
