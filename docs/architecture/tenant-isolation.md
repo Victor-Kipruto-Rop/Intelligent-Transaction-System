@@ -1,0 +1,3 @@
+# Tenant isolation
+
+Derive tenant identity from authenticated claims and server-side registry. Every tenant-owned row, event, idempotency key and cache key carries tenant context. Enforce authorization in every service; use PostgreSQL RLS as defense in depth with transaction-local context. Test connection-pool reuse and adversarial cross-tenant access. Apply per-tenant quotas and noisy-neighbor controls.
