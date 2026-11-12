@@ -48,7 +48,7 @@ Requirements: JDK 21, Maven 3.9+, Docker and Docker Compose.
 ```bash
 cp .env.example .env
 docker compose -f compose.yaml up -d
-./mvnw -B verify
+mvn -B verify
 ```
 
 The compose environment is for local development only. Change all sample credentials before using any shared environment.
