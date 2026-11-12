@@ -104,6 +104,17 @@ See `docs/roadmap/implementation-plan.md`, `docs/roadmap/production-maturity-gat
 
 The audit records the current PR/CI status, architecture gaps, unresolved decisions and merge blockers. It is a remote source review, not a local build or security certification.
 
+## Engineering governance and Phase 0
+
+- [Contributing guide](CONTRIBUTING.md)
+- [Security policy](SECURITY.md)
+- [Phase 0 repository audit](docs/audits/PHASE_0_REPOSITORY_AUDIT.md)
+- [Initial deployment topology ADR](docs/adr/0004-initial-deployment-topology.md)
+- [Money and asset model](docs/architecture/MONEY_AND_ASSET_MODEL.md)
+- [Transaction state machine](docs/architecture/TRANSACTION_STATE_MACHINE.md)
+- [Schema and event contract governance](docs/architecture/SCHEMA_GOVERNANCE.md)
+- [Requirements traceability template](docs/roadmap/REQUIREMENTS_TRACEABILITY_TEMPLATE.md)
+
 ## Pre-development blueprint
 
 Before implementing the transaction engine, review the requirements and design contracts:
