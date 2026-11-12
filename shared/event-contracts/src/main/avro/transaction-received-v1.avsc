@@ -1,0 +1,18 @@
+{
+  "type": "record",
+  "name": "TransactionReceived",
+  "namespace": "com.finintel.events.v1",
+  "doc": "Initial logical contract. Add compatibility checks before publishing changes.",
+  "fields": [
+    {"name": "eventId", "type": "string"},
+    {"name": "tenantId", "type": "string"},
+    {"name": "transactionId", "type": "string"},
+    {"name": "source", "type": "string"},
+    {"name": "externalReference", "type": "string"},
+    {"name": "amountMinorUnits", "type": "long"},
+    {"name": "currency", "type": "string"},
+    {"name": "occurredAt", "type": "string"},
+    {"name": "receivedAt", "type": "string"},
+    {"name": "schemaVersion", "type": "int", "default": 1}
+  ]
+}

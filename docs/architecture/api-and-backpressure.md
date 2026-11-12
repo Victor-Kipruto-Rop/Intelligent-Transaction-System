@@ -1,0 +1,3 @@
+# API resilience and backpressure
+
+Version APIs; require idempotency keys for create operations. Bound request size, pagination, deadlines, concurrency and queues. Apply per-tenant/client quotas. Use 429 for quota and 503 for temporary overload with retry guidance. Retry only safe operations using exponential backoff and jitter. Use circuit breakers, bulkheads, load shedding and 202 job resources for long-running work.

@@ -1,0 +1,3 @@
+# Regional failover runbook template
+
+Declare incident; identify tenant cell; verify DB/broker replication; fence old writers; select recovery point against approved RPO; activate recovery services; validate secrets/schema/config; route affected tenants; validate offsets/idempotency/outbox; reconcile transactions against source evidence; monitor lag/errors; record data-loss window and impact. Never allow two write authorities for one tenant ledger.

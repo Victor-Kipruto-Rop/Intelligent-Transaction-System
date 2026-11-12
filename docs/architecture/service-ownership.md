@@ -1,0 +1,3 @@
+# Service ownership
+
+Gateway owns edge routing/quotas; identity owns users/tenants/roles; ingestion owns accepted requests/idempotency; processing owns state transitions; outbox relay owns publication; streaming owns event-time features; reconciliation owns matching/discrepancies; anomaly service owns versioned alerts; notification owns delivery; analytics owns read models; batch/lakehouse owns historical transforms. Services own their schemas; shared libraries contain stable contracts, not shared mutable state.

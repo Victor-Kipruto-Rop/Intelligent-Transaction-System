@@ -1,0 +1,24 @@
+spring:
+  application:
+    name: batch-processing-service
+  profiles:
+    default: local
+
+server:
+  shutdown: graceful
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics,prometheus
+  endpoint:
+    health:
+      probes:
+        enabled: true
+      show-details: never
+
+info:
+  app:
+    name: Batch Service
+    description: Intelligent Transaction System component

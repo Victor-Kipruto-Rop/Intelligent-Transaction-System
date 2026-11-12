@@ -1,0 +1,3 @@
+# Security and compliance boundaries
+
+Implement OIDC/OAuth2, MFA for privileged users, workload identity, RBAC/ABAC, tenant isolation, secret management, TLS, encryption at rest, audit, data minimization, SBOM, signed artifacts, SAST/DAST and penetration testing. Regulatory applicability and certifications require formal legal/security assessment and evidence. Documentation alone does not establish PCI DSS, SOC 2, ISO 27001 or GDPR compliance.
