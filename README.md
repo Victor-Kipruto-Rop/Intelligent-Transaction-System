@@ -96,3 +96,28 @@ The compose environment is for local development only. Change all sample credent
 Do not process real financial data until correctness, tenant isolation, security, observability, disaster recovery, capacity and jurisdiction-specific obligations have passed evidence-based review.
 
 See `docs/roadmap/implementation-plan.md`, `docs/roadmap/production-maturity-gates.md` and `docs/architecture/global-scale-reference-architecture.md`.
+
+
+## Pre-development blueprint
+
+Before implementing the transaction engine, review the requirements and design contracts:
+
+- [Product requirements](docs/requirements/PRODUCT_REQUIREMENTS.md)
+- [System requirements](docs/requirements/SYSTEM_REQUIREMENTS.md)
+- [Master architecture](docs/architecture/MASTER_ARCHITECTURE.md)
+- [Canonical transaction specification](docs/architecture/TRANSACTION_SPECIFICATION.md)
+- [Ledger and financial integrity](docs/architecture/LEDGER_DESIGN.md)
+- [Universal integration standard](docs/integration/INTEGRATION_STANDARD.md)
+- [Connector SDK specification](docs/integration/CONNECTOR_SDK_SPEC.md)
+- [Provider capability matrix](docs/integration/PROVIDER_CAPABILITY_MATRIX.md)
+- [Security architecture and threat model](docs/security/SECURITY_ARCHITECTURE.md)
+- [Data classification and retention](docs/security/DATA_CLASSIFICATION_AND_RETENTION.md)
+- [Disaster recovery and business continuity](docs/operations/DISASTER_RECOVERY_AND_BUSINESS_CONTINUITY.md)
+- [Incident response](docs/operations/INCIDENT_RESPONSE.md)
+- [Production readiness gate](docs/operations/PRODUCTION_READINESS.md)
+- [Compliance and jurisdiction framework](docs/compliance/COMPLIANCE_AND_JURISDICTION_FRAMEWORK.md)
+- [Testing strategy](docs/testing/TESTING_STRATEGY.md)
+- [Pre-development exit criteria](docs/roadmap/PRE_DEVELOPMENT_EXIT_CRITERIA.md)
+- [Global provider roadmap](docs/roadmap/GLOBAL_PROVIDER_ROADMAP.md)
+
+These documents describe intended architecture and controls. A documented capability is not an implemented, tested or certified capability. The pre-development exit criteria must be reviewed before core transaction-engine implementation starts.
