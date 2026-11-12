@@ -144,3 +144,10 @@ Changes committed to this PR after the initial audit:
 These edits have not yet been validated by a completed GitHub Actions run. The earlier failed run logs remain unavailable through the connected interface. The CI workflow must complete on the updated PR head before its trigger and build remediation can be marked verified. No local Maven build, container startup, security scan or runtime test was executed here.
 
 The initial scaffold's Money implementation and TransactionStatus enum remain code-level placeholders that must be reconciled with the new specifications before core financial processing is implemented.
+
+
+### Latest workflow and mergeability observation
+
+After the workflow changes, the latest PR #3 head was `9f29e12c233d15cc74cf0fd42cc7ff5d27a7e724`. The connected GitHub status endpoint returned no status checks and the workflow-run lookup returned no pull-request-triggered runs for that head. This does not prove Actions are disabled; it means successful execution has not been evidenced through the available results.
+
+GitHub's mergeability field has also varied between reads during this update and most recently returned `false`. Treat mergeability as unresolved and re-evaluate after the stacked base PRs are reconciled. Do not merge this PR based on an earlier positive mergeability snapshot.
