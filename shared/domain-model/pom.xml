@@ -3,4 +3,7 @@
   <parent><groupId>com.finintel</groupId><artifactId>intelligent-transaction-system</artifactId><version>0.1.0-SNAPSHOT</version></parent>
   <artifactId>domain-model</artifactId>
   <name>Shared Domain Model</name>
+  <dependencies>
+    <dependency><groupId>org.junit.jupiter</groupId><artifactId>junit-jupiter</artifactId><scope>test</scope></dependency>
+  </dependencies>
 </project>
