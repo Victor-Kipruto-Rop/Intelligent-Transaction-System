@@ -3,8 +3,6 @@ name: Quality baseline
 on:
   pull_request:
     branches: [main, "scaffold/**", "architecture/**", "foundation/**"]
-  push:
-    branches: [main, "scaffold/**", "architecture/**", "foundation/**"]
   workflow_dispatch:
 
 permissions:
@@ -19,12 +17,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - name: Whitespace checks
-        run: git diff --check
+        if: github.event_name == 'pull_request'
+        run: git diff --check "${{ github.event.pull_request.base.sha }}"..."${{ github.sha }}"
       - name: Added-line merge conflict marker check
+        if: github.event_name == 'pull_request'
         shell: bash
         run: |
-          if git diff --no-ext-diff --unified=0 | grep -E '^\+(<<<<<<< |=======$|>>>>>>> )'; then
+          if git diff --no-ext-diff --unified=0 "${{ github.event.pull_request.base.sha }}"..."${{ github.sha }}" | grep -E '^\\+(<<<<<<< |=======$|>>>>>>> )'; then
             echo "Possible merge conflict markers found in changed lines."
             exit 1
           fi
