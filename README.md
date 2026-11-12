@@ -116,6 +116,7 @@ The audit records the current PR/CI status, architecture gaps, unresolved decisi
 - [Requirements traceability template](docs/roadmap/REQUIREMENTS_TRACEABILITY_TEMPLATE.md)
 - [Open-source licensing decision](docs/governance/OPEN_SOURCE_LICENSE_DECISION.md)
 - [Phase 0 exit status and closure gates](docs/roadmap/PHASE_0_EXIT_STATUS.md)
+- [Phase 0 architecture and governance sign-off register](docs/governance/PHASE_0_SIGN_OFF.md)
 
 ## Pre-development blueprint
 
