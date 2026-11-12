@@ -52,6 +52,22 @@ The connected GitHub interface returned completed failed workflow jobs, but the 
 - GitHub automatically created follow-up PR checks, but the latest observed CodeQL and quality jobs still concluded as failed. The CI run was not returned for that head at the time of inspection.
 - This plugin-version pin is a build reproducibility improvement, not a confirmed fix for the existing failures. The raw logs remain unavailable through the connected interface; inspect the run pages directly before making further changes.
 
+## Latest verification snapshot (2026-11-12)
+
+Current PR heads and latest observed pull-request workflow results:
+
+| PR | Head | Latest observed workflows | Result |
+|---|---|---|---|
+| #1 | `6fc08fbadf30c890bd34bfe5817cea3818302e09` | CI run 43137350881; CodeQL run 43137350868 | Both failed |
+| #2 | `8dd1c810047c05d58bf6fca658efb4e9ce72492d` | CI run 43137969898 | Failed |
+| #3 | `e65295cff678e859cfdc0d84f7901161283e1a47` | CI run 43140284317; Quality run 43140284373; CodeQL run 43140284534 | All failed |
+
+GitHub reports the three PRs as open drafts and currently mergeable. Mergeability only means GitHub can calculate a merge candidate; it is not evidence that checks pass or that reviewers have approved the changes.
+
+The six failed job-log downloads were attempted again. Each returned `BlobNotFound`; each job-step summary was empty. Therefore, the underlying failure cause remains unknown. No further workflow reruns were started because the repository has a previously stated Actions-spending constraint. Do not infer that a rerun is free or that a failure is transient.
+
+A new reviewer sign-off register is available at [PHASE_0_SIGN_OFF.md](../governance/PHASE_0_SIGN_OFF.md). Product, architecture, financial-domain, security/privacy, legal/compliance, operations, engineering and license-owner decisions remain pending until named reviewers record approvals.
+
 ## Required closure gates
 
 - [ ] Diagnose and fix all failed PR #1-#3 workflows.
