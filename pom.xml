@@ -31,7 +31,7 @@
     <spring-boot-maven-plugin.version>${spring-boot.version}</spring-boot-maven-plugin.version>
     <junit.version>5.11.4</junit.version>
     <maven.compiler.plugin.version>3.13.0</maven.compiler.plugin.version>
-    <maven.surefire.plugin.version>3.5.2</maven.surefire.plugin.version>
+    <maven.surefire.plugin.version>3.6.1</maven.surefire.plugin.version>
   </properties>
 
   <dependencyManagement>
